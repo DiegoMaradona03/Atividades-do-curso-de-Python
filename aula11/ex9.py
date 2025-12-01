@@ -1,16 +1,22 @@
-class DivisorZeroError(Exception):
-    pass
+import pygame, sys
 
-def dividir_custom(a, b):
-    if b == 0:
-        raise DivisorZeroError("Divisão por zero não permitida.")
-    return a / b
+pygame.init()
+pygame.mixer.init()
 
-try:
-    a = float(input("Digite o primeiro número: "))
-    b = float(input("Digite o segundo número: "))
-    print(dividir_custom(a, b))
-except DivisorZeroError as erro:
-    print("Erro:", erro)
-except ValueError:
-    print("Digite valores numéricos válidos.")
+tela = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Som no Espaço")
+relogio = pygame.time.Clock()
+
+som = pygame.mixer.Sound("aula11/som.wav")
+
+while True:
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        if evento.type == pygame.KEYDOWN and evento.key == pygame.K_SPACE:
+            som.play()
+
+    tela.fill((50,50,50))
+    pygame.display.flip()
+    relogio.tick(60)

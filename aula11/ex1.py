@@ -1,19 +1,12 @@
-def dividir():
-        try:
-            a = float(input("Digite o primeiro número: "))
-            b = float(input("Digite o segundo número: "))
-            resultado = a/b
-        except ZeroDivisionError:
-            print("Não existe divisão por zero")
-            resultado = None
-        except ValueError:
-            print("digite apenas números")
-            resultado = None
-        else:
-            print("Divisão realizada com sucesso!")
-        finally:
-            print("Operação finalizada")    
+import pygame, sys
 
-        return resultado
+pygame.init()
+tela = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Meu Jogo")
 
-print(dividir())
+while True:
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+    pygame.display.flip()

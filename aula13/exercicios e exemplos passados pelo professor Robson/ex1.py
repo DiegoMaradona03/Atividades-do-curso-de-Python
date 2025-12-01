@@ -9,7 +9,7 @@ df = pd.DataFrame(dados)
 
 df ['Faturamento'] = df['Preço'] * df['Vendidos']
 
-df = df.sort_values(by='Produto', ascending=True)
+df = df.sort_values('Produto')
 
 filtro = df[df['Faturamento'] > 500]
 

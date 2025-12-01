@@ -1,8 +1,16 @@
-def ler_inteiro():
-    try:
-        n = int(input("Digite um número inteiro: "))
-        print(f"Você digitou o número {n}")
-    except ValueError:
-        print("Erro: digite apenas números inteiros.")
+import pygame, sys
 
-ler_inteiro()
+pygame.init()
+tela = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Fundo Colorido")
+
+azul = (0, 120, 255)
+
+while True:
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    tela.fill(azul)
+    pygame.display.flip()
